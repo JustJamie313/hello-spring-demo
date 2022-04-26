@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.websocket.server.PathParam;
+
 /**
  * Created by Chris Bay
  */
@@ -24,12 +26,20 @@ public class HelloController {
     public String goodbye() {
         return "Goodbye, Spring!";
     }
-
-    // Handles requests of the form /hello?name=LaunchCode
+    @GetMapping("goodbye/{name}")
+    @ResponseBody
+    public String goodbyeWithPathParam(@PathVariable String name) {
+        return "Goodbye, " +name+"!";
+    }
+    // Handle requests of the form /hello?name=LaunchCode
     @GetMapping("hello")
     @ResponseBody
     public String helloWithQueryParam(@RequestParam String name) {
         return "Hello, " + name + "!";
     }
 
+    @GetMapping("hello/{name}")
+    public String helloWithPathParam(@PathVariable String name){
+        return "redirect:/goodbye/"+name;
+    }
 }
