@@ -42,7 +42,7 @@ public class HelloController {
                             text-shadow: 1px 1px rgb(127,127,0);
                         }
                         .output{
-                            background: linear-gradient(rgb(0,100,1000),rgb(100,0,0));
+                            background: linear-gradient(rgb(0,0,0),rgb(0,0,100));
                             border-radius: 5%;
                             border: 5px ridge gold;
                             box-shadow: 3px 3px black;
